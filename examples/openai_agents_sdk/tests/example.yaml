@@ -1,0 +1,7 @@
+test_cases:
+  - name: OpenAI Greeting test
+    input: "Hello there!"
+    expected_output: "Hello from OpenAI Agent!"
+  - name: OpenAI Unknown test
+    input: "What's the weather?"
+    expected_output: "I am an OpenAI assistant."

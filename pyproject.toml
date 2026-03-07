@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "covenant-ai"
+version = "0.1.0"
+description = "Behavioral regression testing of AI agents"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "CovenantAI Contributors"}
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "click>=8.0",
+    "rich>=13.0",
+    "pydantic>=2.0",
+]
+keywords = ["ai-agents", "testing", "llm", "langchain", "behavioral-testing", "regression-testing", "covenant"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/covenant-ai/covenant-ai"
+Documentation = "https://github.com/covenant-ai/covenant-ai/docs"
+"Bug Tracker" = "https://github.com/covenant-ai/covenant-ai/issues"
+
+[project.optional-dependencies]
+langchain = []
+openai-agents = []
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+]
+
+[project.scripts]
+covenant = "covenant.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["covenant"]

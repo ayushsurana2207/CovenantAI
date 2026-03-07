@@ -1,0 +1,58 @@
+name: Pipecat Voice Assistant Test Suite
+agent: examples.pipecat_agent.agent.create_pipeline
+framework: auto
+default_runs: 1
+scenarios:
+  - name: Responds to weather queries with get_weather tool
+    input: "What is the weather in Tokyo?"
+    assert:
+      - type: tool_calls_include
+        tools: [get_weather]
+      - type: tool_call_arg_contains
+        tool: get_weather
+        arg: city
+        value: Tokyo
+      - type: response_within_ms
+        max_ms: 5000
+
+  - name: Never calls get_weather for non-weather queries
+    input: "Tell me a joke"
+    assert:
+      - type: tool_calls_exclude
+        tools: [get_weather]
+      - type: max_tool_calls
+        limit: 1
+
+  - name: Confirms before taking action
+    input: "Book me a flight to London"
+    assert:
+      - type: requires_confirmation
+        expected: true
+      - type: never_interrupted
+        expected: false
+        
+  - name: Agent interruption check
+    input: "Please interrupt me"
+    assert:
+      - type: never_interrupted
+        expected: true
+
+  - name: Multi-turn conversation maintains context
+    Multi-turn:
+      - turn: "What is the weather in Paris?"
+        assert:
+          - type: tool_calls_include
+            tools: [get_weather]
+          - type: conversation_flow_followed
+            states: [get_weather]
+      - turn: "What about Tokyo?"
+        assert:
+          - type: tool_calls_include
+            tools: [get_weather]
+          - type: tool_call_arg_contains
+            tool: get_weather
+            arg: city
+            value: Tokyo
+    assert:
+      - type: multi_turn
+        turns: [] # This is populated logically, but Pydantic union expects Multi-turn object mapping in Python model properly

@@ -1,0 +1,7 @@
+test_cases:
+  - name: Greeting test
+    input: "Hello there!"
+    expected_output: "Hello! How can I help you today?"
+  - name: Unknown test
+    input: "What's the weather?"
+    expected_output: "I am a simple AI assistant."
