@@ -27,7 +27,7 @@ class RichReporter:
         content = f"Running [bold cyan]{total_scenarios}[/bold cyan] scenarios"
         panel = Panel(
             content,
-            title=f"⚗ covenant • {suite_name}",
+            title=f"[covenant] {suite_name}",
             expand=False,
             border_style="cyan"
         )
@@ -37,7 +37,7 @@ class RichReporter:
         
     def scenario_start(self, scenario_name: str, runs: int, threshold: float) -> None:
         """Starts the progress tracking for a new scenario."""
-        self.console.print(f"  [bold]◎[/bold] {scenario_name}  [dim][{runs} runs @ {threshold*100:.0f}% threshold][/dim]")
+        self.console.print(f"  [bold]*[/bold] {scenario_name}  [dim][{runs} runs @ {threshold*100:.0f}% threshold][/dim]")
         
         # We start a fresh progress context per scenario to keep the output clean
         self.progress = Progress(

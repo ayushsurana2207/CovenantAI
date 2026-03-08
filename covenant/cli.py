@@ -29,6 +29,14 @@ def cli() -> None:
 @click.option("--runs", type=int, help="Override the runs count from YAML.")
 def run_suite_cmd(suite: Path, verbose: bool, output: Optional[Path], ci: bool, runs: Optional[int]) -> None:
     """Execute a test suite against an agent."""
+    # Ensure project root (CWD) and suite directory are on path so agent modules like 'agents.*' can be imported
+    cwd = Path.cwd()
+    suite_dir = suite.resolve().parent
+    for p in (cwd, suite_dir):
+        s = str(p)
+        if s not in sys.path:
+            sys.path.insert(0, s)
+
     try:
         suite_model = SuiteModel.from_yaml(str(suite.resolve()))
     except Exception as e:
