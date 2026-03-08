@@ -45,6 +45,7 @@ dev = [
     "pytest-cov",
     "ruff",
     "mypy",
+    "pipecat-ai",
 ]
 
 [project.scripts]
