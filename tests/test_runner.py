@@ -2,11 +2,9 @@
 Tests for the probabilistic execution engine.
 """
 import pytest
-import asyncio
-import time
 from unittest.mock import patch, MagicMock
 from covenant.runner import import_agent, ScenarioRunner, SuiteRunner
-from covenant.exceptions import CovenantImportError, CovenantRunError, CovenantTimeoutError
+from covenant.exceptions import CovenantImportError, CovenantTimeoutError
 from covenant.models import ScenarioModel, SuiteModel, ToolCallsInclude, AgentTrace
 from tests.fixtures.mock_adapter import MockAdapter
 

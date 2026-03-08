@@ -1,9 +1,9 @@
 """
 Test execution reporting.
 """
-from typing import Any, Dict, List, Optional, DefaultDict
+from typing import Any, Dict, Optional, DefaultDict
 from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TaskProgressColumn
+from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn
 from rich.progress import TaskID
 from rich.table import Table
 from rich.panel import Panel

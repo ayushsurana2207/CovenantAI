@@ -1,4 +1,3 @@
-import pytest
 from covenant.models import (
     AgentTrace, ToolCallTrace, ResponseWithinMs, ConversationFlowFollowed, NeverInterrupted
 )

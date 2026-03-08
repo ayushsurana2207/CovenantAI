@@ -12,7 +12,6 @@ import click
 
 from covenant.models import SuiteModel
 from covenant.reporter import RichReporter
-from covenant.runner import SuiteRunner
 
 __version__ = "0.1.0"
 
@@ -40,7 +39,6 @@ def run_suite_cmd(suite: Path, verbose: bool, output: Optional[Path], ci: bool, 
         for scenario in suite_model.scenarios:
             scenario.runs = runs
             
-    runner = SuiteRunner()
     reporter = RichReporter()
 
     if not ci:

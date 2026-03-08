@@ -1,4 +1,3 @@
-import pytest
 from covenant.assertions import evaluate
 from covenant.models import (
     AgentTrace,

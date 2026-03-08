@@ -1,4 +1,3 @@
-from typing import Optional
 from langchain_openai import ChatOpenAI
 from langchain_core.tools import tool
 from langchain.agents import AgentExecutor, create_tool_calling_agent

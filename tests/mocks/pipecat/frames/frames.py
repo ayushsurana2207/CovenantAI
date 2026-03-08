@@ -7,8 +7,12 @@ class TranscriptionFrame(Frame):
         self.user_id = user_id
         self.timestamp = timestamp
 
-class LLMFullResponseStartFrame(Frame): pass
-class LLMFullResponseEndFrame(Frame): pass
+class LLMFullResponseStartFrame(Frame):
+    pass
+
+
+class LLMFullResponseEndFrame(Frame):
+    pass
 
 class LLMTextFrame(Frame):
     def __init__(self, text):
@@ -31,9 +35,16 @@ class ErrorFrame(Frame):
     def __init__(self, error):
         self.error = error
 
-class StartFrame(Frame): pass
-class EndFrame(Frame): pass
-class InterruptionFrame(Frame): pass
+class StartFrame(Frame):
+    pass
+
+
+class EndFrame(Frame):
+    pass
+
+
+class InterruptionFrame(Frame):
+    pass
 
 class TTSAudioRawFrame(Frame):
     def __init__(self, audio, sample_rate, num_channels):

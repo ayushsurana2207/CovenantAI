@@ -1,7 +1,6 @@
 """
 Tests for the command-line interface.
 """
-import json
 from pathlib import Path
 
 import pytest
@@ -39,7 +38,7 @@ def test_init_scaffolding(runner, tmp_path):
         assert "framework: langchain" in yaml_content # default
 
 def test_run_command_successful_ci(runner, tmp_path, monkeypatch):
-    from covenant.models import SuiteModel, ScenarioModel
+    from covenant.models import SuiteModel
     
     # Needs absolute path for isolated filesystem to resolve correctly or mock SuiteModel
     test_yaml = tmp_path / "test.yaml"

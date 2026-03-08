@@ -2,9 +2,7 @@
 Tests for adapters and the adapter resolver.
 """
 import pytest
-import asyncio
 from covenant.adapters import get_adapter
-from covenant.adapters.base import BaseAdapter
 from covenant.models import AgentTrace, ToolCallTrace
 from covenant.exceptions import CovenantRunError, CovenantTimeoutError, AdapterNotFoundError
 from tests.fixtures.mock_adapter import MockAdapter

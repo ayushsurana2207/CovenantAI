@@ -1,4 +1,3 @@
-import asyncio
 import pytest
 from covenant.adapters.pipecat import PipecatAdapter
 from covenant.exceptions import CovenantTimeoutError, CovenantRunError
@@ -8,7 +7,6 @@ from pipecat.frames.frames import (
 )
 from pipecat.processors.frame_processor import FrameProcessor, FrameDirection
 from pipecat.pipeline.pipeline import Pipeline
-from pipecat.pipeline.task import PipelineTask, PipelineParams
 from covenant.adapters.pipecat_pipeline import CovenantTestTransport
 
 class MockLLMProcessor(FrameProcessor):

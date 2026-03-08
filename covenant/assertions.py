@@ -6,7 +6,6 @@ from typing import Any, Callable, Dict
 from covenant.models import (
     AgentTrace,
     AssertionResult,
-    BaseAssertion,
     ToolCallsInclude,
     ToolCallsExclude,
     ToolCallsSequence,

@@ -99,7 +99,7 @@ class CovenantInputProcessor(FrameProcessor):  # type: ignore
     async def process_frame(self, frame: Frame, direction: FrameDirection) -> None:
         await self.push_frame(frame, direction)
         
-        from pipecat.frames.frames import StartFrame, EndFrame
+        from pipecat.frames.frames import StartFrame
         if direction == FrameDirection.DOWNSTREAM:
             if isinstance(frame, StartFrame):
                 self._drain_task = asyncio.create_task(self._drain_queue())

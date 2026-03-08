@@ -1,8 +1,6 @@
 import os
 import pytest
-import asyncio
 from click.testing import CliRunner
-import yaml
 from pathlib import Path
 
 # Skip the whole module if pipecat isn't installed
@@ -17,7 +15,7 @@ from pipecat.frames.frames import (
 
 from covenant.models import (
     ScenarioModel, SuiteModel, ResponseContains, ToolCallsInclude, 
-    MultiTurnAssertion, SingleTurnAssertion, ConversationFlowFollowed
+    MultiTurnAssertion, SingleTurnAssertion
 )
 from covenant.runner import ScenarioRunner, SuiteRunner
 from covenant.adapters.pipecat import PipecatAdapter

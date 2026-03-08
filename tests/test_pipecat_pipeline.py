@@ -7,7 +7,6 @@ from pipecat.frames.frames import (
     LLMFullResponseStartFrame,
     LLMFullResponseEndFrame,
     TranscriptionFrame,
-    ErrorFrame,
     EndFrame,
     StartFrame,
     TTSAudioRawFrame
@@ -16,7 +15,6 @@ from pipecat.processors.frame_processor import FrameDirection, FrameProcessor
 from covenant.adapters.pipecat_pipeline import (
     CovenantFrameObserver,
     CovenantTestTransport,
-    CovenantInputProcessor,
     CovenantOutputProcessor
 )
 
