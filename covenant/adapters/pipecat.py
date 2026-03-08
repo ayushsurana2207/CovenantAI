@@ -21,8 +21,8 @@ class PipecatAdapter(BaseAdapter):
     @classmethod
     def can_handle(cls, agent: Any) -> bool:
         try:
-            from pipecat.pipeline.pipeline import Pipeline  # type: ignore
-            from pipecat.pipeline.task import PipelineTask  # type: ignore
+            from pipecat.pipeline.pipeline import Pipeline
+            from pipecat.pipeline.task import PipelineTask
             
             if isinstance(agent, Pipeline) or isinstance(agent, PipelineTask):
                 return True
@@ -48,8 +48,8 @@ class PipecatAdapter(BaseAdapter):
     async def run(self, user_input: str, timeout_seconds: int) -> AgentTrace:
         from pipecat.pipeline.pipeline import Pipeline
         from pipecat.pipeline.task import PipelineTask, PipelineParams
-        from pipecat.pipeline.runner import PipelineRunner  # type: ignore
-        from pipecat.frames.frames import EndFrame  # type: ignore
+        from pipecat.pipeline.runner import PipelineRunner
+        from pipecat.frames.frames import EndFrame
         
         transport = CovenantTestTransport()
         observer = CovenantFrameObserver()
@@ -83,8 +83,7 @@ class PipecatAdapter(BaseAdapter):
             pipeline,
             params=PipelineParams(
                 allow_interruptions=False,
-                enable_metrics=False,
-                enable_tracing=False
+                enable_metrics=False
             )
         )
         
@@ -181,8 +180,7 @@ class PipecatAdapter(BaseAdapter):
             pipeline,
             params=PipelineParams(
                 allow_interruptions=False,
-                enable_metrics=False,
-                enable_tracing=False
+                enable_metrics=False
             )
         )
         

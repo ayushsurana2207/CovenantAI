@@ -6,7 +6,7 @@ import time
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from pipecat.frames.frames import (  # type: ignore
+from pipecat.frames.frames import (
     Frame,
     FunctionCallInProgressFrame,
     FunctionCallResultFrame,
@@ -19,9 +19,9 @@ from pipecat.frames.frames import (  # type: ignore
     TTSAudioRawFrame,
     InterruptionFrame
 )
-from pipecat.processors.frame_processor import FrameProcessor, FrameDirection  # type: ignore
+from pipecat.processors.frame_processor import FrameProcessor, FrameDirection
 
-class CovenantFrameObserver(FrameProcessor):  # type: ignore
+class CovenantFrameObserver(FrameProcessor):
     """
     Passively observes Pipecat frames flowing downstream to aggregate LLM calls and text.
     """
@@ -90,7 +90,7 @@ class CovenantFrameObserver(FrameProcessor):  # type: ignore
         except asyncio.TimeoutError:
             return False
 
-class CovenantInputProcessor(FrameProcessor):  # type: ignore
+class CovenantInputProcessor(FrameProcessor):
     def __init__(self, input_queue: "asyncio.Queue[Any]") -> None:
         super().__init__()
         self._input_queue = input_queue
@@ -118,7 +118,7 @@ class CovenantInputProcessor(FrameProcessor):  # type: ignore
         except asyncio.CancelledError:
             pass
 
-class CovenantOutputProcessor(FrameProcessor):  # type: ignore
+class CovenantOutputProcessor(FrameProcessor):
     async def process_frame(self, frame: Frame, direction: FrameDirection) -> None:
         if direction == FrameDirection.DOWNSTREAM and hasattr(frame, "audio"):
             # The prompt requested "discards TTSAudioRawFrame silently". Checking exactly for that class
